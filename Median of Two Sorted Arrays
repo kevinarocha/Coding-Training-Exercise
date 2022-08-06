@@ -1,0 +1,35 @@
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        vector<int> nums3; // This will have the merged array
+        int med = 0;
+        double med1 = 0, med2 = 0, med3 = 0;
+        int vecSum = nums1.size() + nums2.size();
+        if(vecSum % 2 == 0)
+        {
+            // the number is even, we need to take two as median
+            nums3 = nums1;
+            for(int i = 0; i < nums2.size(); i++){
+                nums3.push_back(nums2[i]);
+            }
+           sort(nums3.begin(), nums3.end()); 
+           med = nums3.size() / 2;
+            med1 = nums3[med];
+           med2 = nums3[med - 1];
+            med3 = (med1 + med2) / 2;
+            return med3;
+        }
+        else{
+            
+            // this is for the odd vector summation
+            nums3 = nums1;
+            for(int i = 0; i < nums2.size(); i++){
+                nums3.push_back(nums2[i]);
+            }
+            sort(nums3.begin(), nums3.end());
+            med = nums3.size() / 2;
+            med1 = nums3[med];
+            return med1;
+        }
+    }
+};
