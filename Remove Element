@@ -56,9 +56,9 @@ public:
             if(*it == val){
                 nums.erase(it);
             }
-            else{
+            else
                 it++;
-            }
+            
         }
         total = nums.size();
         return total;
